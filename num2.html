@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channaveerayya Gandhadha | AI & ML Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent-blue: #3b82f6;
+            --accent-indigo: #6366f1;
+            --accent-pink: #ec4899;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --card-bg: rgba(255, 255, 255, 0.65);
+            --card-border: rgba(255, 255, 255, 0.8);
+            --card-shadow: 0 15px 35px rgba(99, 102, 241, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(59, 130, 246, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 50% 70%, rgba(16, 185, 129, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 90% 90%, rgba(245, 158, 11, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-main);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .gradient-text-2 {
+            background: linear-gradient(to right, var(--accent-indigo), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 50;
+        }
+
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, rgba(99, 102, 241, 0.2), transparent);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            color: var(--text-main);
+        }
+
+        .hero h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: var(--accent-indigo);
+        }
+
+        .typewriter {
+            display: inline-block;
+            border-right: 3px solid var(--accent-pink);
+            padding-right: 8px;
+            animation: blinkBg 0.75s step-end infinite;
+            font-weight: 700;
+        }
+
+        .hero p.bio {
+            max-width: 650px;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-pill {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: #fff;
+            border: 2px solid rgba(226, 232, 240, 1);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .contact-pill:hover {
+            border-color: var(--accent-blue);
+            background: linear-gradient(to right, rgba(59, 130, 246, 0.05), rgba(236, 72, 153, 0.05));
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        #target-landing-pad {
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.3) !important;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 2px;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent-pink), var(--accent-yellow));
+            opacity: 0.2;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 4rem;
+            z-index: 1;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 14px;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid var(--accent-indigo);
+            box-shadow: 0 0 15px rgba(99,102,241,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.3);
+            border-color: var(--accent-pink);
+        }
+
+        .timeline-date {
+            font-family: 'Space Grotesk';
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-indigo);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .skill-percent {
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Space Grotesk';
+        }
+
+        .progress-track {
+            height: 10px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-indigo));
+            width: 0;
+            border-radius: 5px;
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
+        }
+
+        #certifications {
+            position: relative;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-org {
+            color: var(--accent-pink);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .cert-date {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            border: 2px solid rgba(226, 232, 240, 1);
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            border-color: var(--accent-green);
+            background: rgba(16, 185, 129, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .tag.primary {
+            border-color: var(--accent-indigo);
+            background: rgba(99, 102, 241, 0.05);
+            color: var(--accent-indigo);
+        }
+
+        @keyframes blinkBg {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: var(--accent-pink); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 2px solid rgba(0,0,0,0.05);
+            color: var(--text-muted);
+            margin-top: 4rem;
+            font-weight: 500;
+        }
+
+        /* PARALLAX SHAPES */
+        .interactive-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .parallax-shape {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            opacity: 0.08;
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape-1 {
+            top: 5%;
+            left: 10%;
+            background: var(--accent-pink);
+            width: 400px;
+            height: 400px;
+        }
+
+        .shape-2 {
+            top: 40%;
+            right: 5%;
+            background: var(--accent-blue);
+            width: 350px;
+            height: 350px;
+        }
+
+        .shape-3 {
+            bottom: 10%;
+            left: 50%;
+            background: var(--accent-green);
+            width: 300px;
+            height: 300px;
+        }
+
+        .shape-4 {
+            top: 60%;
+            left: 5%;
+            background: var(--accent-yellow);
+            width: 250px;
+            height: 250px;
+        }
+
+        /* 3D FALLING KEY */
+        #fallingKey {
+            position: fixed;
+            left: 50%;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            z-index: 999;
+            perspective: 1200px;
+            pointer-events: none;
+        }
+
+        .key-3d {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .key-face {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-blue));
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .key-front {
+            transform: translateZ(40px);
+        }
+
+        .key-back {
+            transform: rotateY(180deg) translateZ(40px);
+        }
+
+        .key-left {
+            transform: rotateY(-90deg) translateZ(40px);
+        }
+
+        .key-right {
+            transform: rotateY(90deg) translateZ(40px);
+        }
+
+        .key-top {
+            transform: rotateX(90deg) translateZ(40px);
+            background: var(--accent-pink);
+        }
+
+        .key-bottom {
+            transform: rotateX(-90deg) translateZ(40px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="interactive-layer">
+        <div class="parallax-shape shape-1" data-speed="0.2" data-rot="0.2"></div>
+        <div class="parallax-shape shape-2" data-speed="0.5" data-rot="-0.1"></div>
+        <div class="parallax-shape shape-3" data-speed="-0.1" data-rot="0.15"></div>
+        <div class="parallax-shape shape-4" data-speed="0.3" data-rot="0.3"></div>
+
+        <div id="fallingKey">
+            <div class="key-3d">
+                <div class="key-face key-front"></div>
+                <div class="key-face key-back"></div>
+                <div class="key-face key-left"></div>
+                <div class="key-face key-right"></div>
+                <div class="key-face key-top">ENTER</div>
+                <div class="key-face key-bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="hero" id="home">
+            <h1 class="fade-in">Channaveerayya <br/> Gandhadha</h1>
+            <h2 class="fade-in">I am a <span class="typewriter" id="typewriter"></span></h2>
+            
+            <p class="bio fade-in">
+                B.Tech AIML student at Parul University. Passionate about engineering intelligent systems gracefully, bridging complex data architectures with vibrant, robust digital experiences.
+            </p>
+
+            <div class="contact-info fade-in">
+                <a href="mailto:shravangandhadha@gmail.com" class="contact-pill">Email</a>
+                <a href="https://linkedin.com/in/channaveerayya-gandhadha-b6b146328" class="contact-pill">LinkedIn</a>
+                <div class="contact-pill">+91 9686137235</div>
+                <div class="contact-pill">Koppal, India</div>
+            </div>
+        </section>
+
+        <section id="journey">
+            <h2 class="section-title"><span class="gradient-text">01.</span> The Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jan 2024 - Present</div>
+                    <div class="glass-card timeline-content">
+                        <h3>Parul University B.Tech AIML</h3>
+                        <p>Established a deep theoretical foundation in Artificial Intelligence and statistical mathematics, pursuing a CGPA of 6.63.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot" style="border-color: var(--accent-pink)"></div>
+                    <div class="timeline-date">Jan - Feb 2025</div>
+                    <div class="glass-card timeline-content">
+                        <h3>Engineering Core & React.js</h3>
+                        <p>Completed intensive bootcamps via LetsUpgrade/NSDC. Bridged theoretical concepts to robust frontend systems by engineering a complex JioCinema React Clone.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot" style="border-color: var(--accent-green)"></div>
+                    <div class="timeline-date">Mar 2025</div>
+                    <div class="glass-card timeline-content">
+                        <h3>Generative AI & LLMs</h3>
+                        <p>Unlocked the potential of advanced natural language models via LinkedIn Learning's Generative AI curriculum and ChatGPT Bootcamp.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot" style="border-color: var(--accent-yellow)"></div>
+                    <div class="timeline-date">May - Jun 2025</div>
+                    <div class="glass-card timeline-content">
+                        <h3>Elite ML Program at IIT Guwahati</h3>
+                        <p>Endured an aggressive 56-day deep-dive into advanced machine learning architectures with top tier intellects at Alcheringa/istop.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Sep 2025</div>
+                    <div class="glass-card timeline-content">
+                        <h3>Vadodara Hackathon 6.0</h3>
+                        <p>Transformed ideation into functioning logic under pressure, innovating and deploying a scalable prototype at PIEC.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise">
+            <h2 class="section-title"><span class="gradient-text-2">02.</span> Technical Ecosystem</h2>
+            <div class="skills-grid">
+                
+                <div class="glass-card fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-track"><div class="progress-fill" data-width="85%"></div></div>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">HTML5 & CSS3 Design</span>
+                        <span class="skill-percent" style="color: var(--accent-pink)">80%</span>
+                    </div>
+                    <div class="progress-track"><div class="progress-fill" style="background: var(--accent-pink)" data-width="80%"></div></div>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">Django</span>
+                        <span class="skill-percent" style="color: var(--accent-green)">70%</span>
+                    </div>
+                    <div class="progress-track"><div class="progress-fill" style="background: var(--accent-green)" data-width="70%"></div></div>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">SQL & MySQL</span>
+                        <span class="skill-percent" style="color: var(--accent-yellow)">65%</span>
+                    </div>
+                    <div class="progress-track"><div class="progress-fill" style="background: var(--accent-yellow)" data-width="65%"></div></div>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">Java / C / C++</span>
+                        <span class="skill-percent">62%</span>
+                    </div>
+                    <div class="progress-track"><div class="progress-fill" data-width="62%"></div></div>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">Scikit-learn / ML</span>
+                        <span class="skill-percent" style="color: var(--accent-pink)">60%</span>
+                    </div>
+                    <div class="progress-track"><div class="progress-fill" style="background: var(--accent-pink)" data-width="60%"></div></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;" class="fade-in">
+                <h3 style="margin-bottom: 1rem;">Core Technologies</h3>
+                <div class="tags-container">
+                    <div class="tag">NumPy</div><div class="tag">Pandas</div><div class="tag">Matplotlib</div>
+                    <div class="tag">Jupyter</div><div class="tag">React.js</div><div class="tag">Git</div>
+                    <div class="tag">DSA</div><div class="tag">Gen AI</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2 class="section-title"><span class="gradient-text">03.</span> Impact & Credentials</h2>
+            <div class="cert-grid">
+                
+                <div class="glass-card fade-in" id="target-landing-pad">
+                    <div class="cert-org">IIT Guwahati</div>
+                    <div class="cert-title">Machine Learning Program</div>
+                    <div class="cert-date">May–Jun 2025</div>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="cert-org">PIEC</div>
+                    <div class="cert-title">Vadodara Hackathon 6.0</div>
+                    <div class="cert-date">Sep 2025</div>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <div class="cert-org">LinkedIn Learning</div>
+                    <div class="cert-title">What Is Generative AI?</div>
+                    <div class="cert-date">Mar 2025</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision">
+            <h2 class="section-title"><span class="gradient-text-2">04.</span> Trajectory</h2>
+            <div class="tags-container fade-in" style="margin-bottom: 4rem;">
+                <div class="tag primary">Machine Learning Engineer</div>
+                <div class="tag primary">Data Scientist</div>
+                <div class="tag primary">AI/Deep Learning Engineer</div>
+                <div class="tag">Data Analyst</div>
+                <div class="tag">MLOps Engineer</div>
+                <div class="tag primary">Full-Stack AI Developer</div>
+                <div class="tag primary">Gen AI / Prompt Engineer</div>
+            </div>
+        </section>
+
+        <footer>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--accent-indigo);">CG.</div>
+            <p>Designed & Coded for Channaveerayya Gandhadha © 2026</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Typewriter
+        const roles = ["Machine Learning Engineer", "Data Scientist", "Full-Stack AI Developer"];
+        let roleIdx = 0;
+        let charIdx = 0;
+        let isDel = false;
+        const typeEl = document.getElementById('typewriter');
+        
+        function typeLoop() {
+            const role = roles[roleIdx];
+            if (isDel) {
+                typeEl.textContent = role.substring(0, --charIdx);
+            } else {
+                typeEl.textContent = role.substring(0, ++charIdx);
+            }
+            
+            let speed = isDel ? 30 : 80;
+            if (!isDel && charIdx === role.length) {
+                speed = 2000;
+                isDel = true;
+            } else if (isDel && charIdx === 0) {
+                isDel = false;
+                roleIdx = (roleIdx + 1) % roles.length;
+                speed = 500;
+            }
+            setTimeout(typeLoop, speed);
+        }
+        setTimeout(typeLoop, 1000);
+
+        // Intersection Observer
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    const bar = e.target.querySelector('.progress-fill');
+                    if(bar) setTimeout(() => bar.style.width = bar.getAttribute('data-width'), 300);
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+        // 3D Scroll Engine
+        const keyEl = document.getElementById('fallingKey');
+        const certSection = document.getElementById('certifications');
+        const landingPad = document.getElementById('target-landing-pad');
+        const shapes = document.querySelectorAll('.parallax-shape');
+
+        window.addEventListener('scroll', () => {
+            const sy = window.scrollY;
+            const wh = window.innerHeight;
+            const ww = window.innerWidth;
+            
+            shapes.forEach(shape => {
+                const speed = parseFloat(shape.getAttribute('data-speed'));
+                const rot = parseFloat(shape.getAttribute('data-rot'));
+                shape.style.transform = `translateY(${sy * speed}px) rotateX(${sy*rot}deg) rotateY(${sy*rot*1.5}deg) rotateZ(${sy*rot*0.5}deg)`;
+            });
+
+            let keyY = sy * 2.2;
+            let certBox = landingPad.getBoundingClientRect();
+            let certTargetAbsoluteY = certBox.top + sy - 80;
+            let keyX = Math.sin(keyY * 0.002) * (ww * 0.35);
+
+            let rx = keyY * 0.6;
+            let ry = keyY * 0.9;
+            let rz = keyY * 0.3;
+            let scale = 1.3;
+
+            if (keyY >= certTargetAbsoluteY) {
+                keyY = certTargetAbsoluteY;
+                keyX = certBox.left - (ww / 2) + 120;
+                rx = 20;
+                ry = -15;
+                rz = 5;
+                scale = 1.0;
+                keyEl.style.transition = "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+            } else {
+                keyEl.style.transition = "none";
+            }
+
+            keyEl.style.transform = `translate3d(calc(-50% + ${keyX}px), ${keyY}px, 0) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${scale})`;
+        });
+
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
